@@ -1,0 +1,23 @@
+{
+  "name": "typescript-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangcherry/typescript-demo.git"
+  },
+  "author": "wangcherry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangcherry/typescript-demo/issues"
+  },
+  "homepage": "https://github.com/wangcherry/typescript-demo#readme",
+  "dependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.2"
+  }
+}
