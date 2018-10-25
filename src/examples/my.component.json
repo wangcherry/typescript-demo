@@ -1,0 +1,130 @@
+{
+    "filePath": "src/examples/my.component.ts",
+    "start": 0,
+    "end": 669,
+    "imports": [
+        {
+            "libraryName": "@angular/core",
+            "start": 0,
+            "end": 42,
+            "specifiers": [
+                {
+                    "specifier": "Component"
+                }
+            ]
+        },
+        {
+            "libraryName": "./shared/shared.module",
+            "start": 44,
+            "end": 97,
+            "specifiers": [
+                {
+                    "specifier": "UserService"
+                }
+            ]
+        }
+    ],
+    "exports": [],
+    "declarations": [
+        {
+            "name": "AppComponent",
+            "isExported": true,
+            "start": 101,
+            "end": 667,
+            "accessors": [],
+            "properties": [
+                {
+                    "name": "hasPerm",
+                    "visibility": 2,
+                    "type": "boolean",
+                    "isOptional": false,
+                    "isStatic": false,
+                    "start": 263,
+                    "end": 295
+                },
+                {
+                    "name": "permMeg",
+                    "visibility": 0,
+                    "isOptional": false,
+                    "isStatic": false,
+                    "start": 301,
+                    "end": 317
+                },
+                {
+                    "name": "userService",
+                    "visibility": 0,
+                    "type": "UserService",
+                    "isOptional": false,
+                    "isStatic": false,
+                    "start": 345,
+                    "end": 377
+                }
+            ],
+            "methods": [
+                {
+                    "name": "ngOnInit",
+                    "isAbstract": false,
+                    "visibility": 2,
+                    "isOptional": false,
+                    "isStatic": false,
+                    "isAsync": false,
+                    "start": 396,
+                    "end": 534,
+                    "parameters": [],
+                    "variables": []
+                },
+                {
+                    "name": "goLogout",
+                    "isAbstract": false,
+                    "visibility": 2,
+                    "isOptional": false,
+                    "isStatic": false,
+                    "isAsync": false,
+                    "start": 542,
+                    "end": 590,
+                    "parameters": [],
+                    "variables": []
+                },
+                {
+                    "name": "ngOnDestroy",
+                    "isAbstract": false,
+                    "visibility": 2,
+                    "isOptional": false,
+                    "isStatic": false,
+                    "isAsync": false,
+                    "start": 598,
+                    "end": 664,
+                    "parameters": [],
+                    "variables": []
+                }
+            ],
+            "ctor": {
+                "name": "AppComponent",
+                "start": 323,
+                "end": 388,
+                "parameters": [
+                    {
+                        "name": "userService",
+                        "type": "UserService",
+                        "start": 345,
+                        "end": 377
+                    }
+                ],
+                "variables": []
+            }
+        }
+    ],
+    "resources": [],
+    "usages": [
+        "userService",
+        "UserService",
+        "v",
+        "alert",
+        "Component",
+        "selector",
+        "templateUrl",
+        "styleUrls",
+        "hasPerm",
+        "permMeg"
+    ]
+}
