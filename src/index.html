@@ -14,18 +14,19 @@
     <p>异步请求回调里下载 <button onclick="downloadAfterAsync();">下载</button></p>
     <p>ajax回调里下载 <button onclick="downloadAfterAjax();">下载</button></p>
     <p>form 表单提交 <button onclick="formDownload('/xhr/doc/test.pptx',{a:1,b:2});">下载</button></p>
+    <p>使用fetch下载 <button onclick="downloadByFetch();">下载</button></p>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function windowOpen(url) {
             window.open(url,'_blank');
         }
-        function createAEle(url, target) {
+        function createAEle(url, target, fileName) {
             const a = document.createElement('a');
             a.id = `download${Date.now()}`;
             a.href = url;
             a.target = target || '_target';
-            a.download = '';
+            a.download = fileName ? fileName : undefined;
             const body = document.getElementsByTagName('body')[0];
             body.appendChild(a);
             a.click();
@@ -37,7 +38,6 @@
             http.send();
             http.onreadystatechange = () => {
                 if(http.readyState === 4 && http.status === 200) {
-                    console.log(http.responseText);
                     const url = http.responseText;
                     // createAEle(url); // 有些浏览器，动态创建表单也会拦截
                     // windowOpen(url); // 异步回调里调用，浏览器会拦截
@@ -54,7 +54,6 @@
                 windowOpen(url);
             });
         }
-    
         function formDownload(url, params) {// 可以使用post方法，携带大对象参数
             const body = document.getElementsByTagName('body')[0];
             const oldIframe = document.getElementById('perfectIframe');
@@ -87,6 +86,13 @@
                 body.appendChild(iframe);
                 form.submit();
             }
+        }
+        async function downloadByFetch() {
+            const res = await fetch('/xhr/doc/test.pptx');
+            const r = await res.blob();
+            const blob = new Blob([r], {type: "application/octet-stream"});
+            const url = window.URL.createObjectURL(blob);
+            createAEle(url, '_target', 'a.pptx');
         }
     </script>
 </body>

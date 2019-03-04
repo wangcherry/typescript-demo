@@ -14,9 +14,9 @@ const returnFile = async (ctx, next) => {
     let filePath = decodeURI(ctx.path.replace('/xhr/', ''));
     if (fse.existsSync(path.resolve(filePath))) {
         ctx.set('Content-disposition', 'attachment; filename=a.pptx');
-        ctx.set('Content-Type', 'application/x-ppt; charset=UTF-8');
+        ctx.set('Content-Type', 'application/vnd.openxmlformats-officedocument.presentationml.presentation; charset=UTF-8');
         console.log(path.resolve(filePath))
-        ctx.body = fse.readFileSync(path.resolve(filePath), 'utf-8');
+        ctx.body = fse.readFileSync(path.resolve(filePath));
     } else {
         console.log('error');
         await next();
@@ -36,6 +36,9 @@ router.get('/xhr/doc/:name', returnFile)
 router.post('/xhr/doc/:name', returnFile)
 // 请求
 router.get('/xhr/get/:name', async (ctx, next) => {
+    ctx.body = '/xhr/doc/test.pptx'
+})
+router.post('/xhr/get/:name', async (ctx, next) => {
     ctx.body = '/xhr/doc/test.pptx'
 })
 
